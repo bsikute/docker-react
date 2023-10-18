@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bsikute/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true bsikute/docker-react npm run test
